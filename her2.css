@@ -1,0 +1,164 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,300,700);
+
+/* Variables */
+:root {
+  --color-background: #fef29c;
+}
+
+*, *:before, *:after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--color-background);
+  color: #000000;
+  font-family: 'Raleway', sans-serif;
+}
+
+.music-player-container {
+  display: inline-block;
+  height: 220px;
+  position: fixed;
+  width: 340px;
+  min-width: unset;
+  right: 100px;
+  bottom: 20px;
+  left: auto;
+  top: auto;
+  z-index: 100;
+  
+}
+
+.music-player-container:after {
+  filter: blur(6px);
+  background-color: rgba(0, 0, 0, 0.8);
+  bottom: -2px;
+  content: ' ';
+  display: block;
+  height: 8px;
+  left: 14px;
+  position: absolute;
+  transform: rotate(-3deg);
+  width: 70%;
+  z-index: 0;
+}
+
+.music-player {
+  background-color: #fff;
+  height: 220px;
+  padding: 10px 200px 24px 24px;
+  position: absolute;
+  text-align: right;
+  width: 340px;
+  z-index: 3;
+  border-radius: 30px;
+}
+
+.player-content-container {
+  transform: translateY(-50%);
+  top: 50%;
+  position: relative;
+  
+}
+
+.artist-name {
+  font-size: 18px;
+  font-weight: normal;
+  margin: 0 0 0.5em 0;
+}
+
+.album-title {
+  font-weight: 200;
+  font-size: 15px;
+  margin: 0 0 1em 0;
+}
+
+.song-title {
+  font-size: 13px;
+  font-weight: 200;
+  margin: 0 0 1em 0;
+}
+
+.album {
+  box-shadow: 3px 3px 15px rgba(0, 0, 0, 0.65);
+  height: 190px;
+  margin-left: 155px;
+  margin-top: 15px;
+  position: relative;
+  width: 190px;
+  z-index: 10;
+}
+
+.album-art {
+  background: #fff url('Dark2.jpg') center / cover no-repeat;
+  height: 190px;
+  position: relative;
+  width: 190px;
+  z-index: 10;
+    border-radius: 5px;
+}
+
+.vinyl {
+  animation: spin 2s linear infinite;
+  transition: all 500ms;
+  background-image: url('Dark2.jpg');
+  background-position: center, center;
+  background-size: cover, 40% auto;
+  background-repeat: no-repeat;
+  border-radius: 100%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  height: 180px;
+  left: 0;
+  position: absolute;
+  top: 5px;
+  width: 180px;
+  z-index: 5;
+  will-change: transform, left;
+}
+
+.is-playing .vinyl {
+  left: 52%;
+}
+
+.music-player-controls {
+  text-align: center;
+}
+
+[class^="control-"] {
+  filter: brightness(95%);
+  border-radius: 100%;
+  display: inline-block;
+  height: 30px;
+  margin: 0 2px;
+  width: 30px;
+}
+
+[class^="control-"]:hover {
+  filter: brightness(85%);
+  cursor: pointer;
+}
+
+.control-play {
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/play.svg') center / cover no-repeat;
+}
+
+.is-playing .control-play {
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/pause.svg') center / cover no-repeat;
+}
+
+.control-forwards {
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/forwards.svg') center / cover no-repeat;
+}
+
+.control-back {
+  background: transparent url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/83141/backwards.svg') center / cover no-repeat;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
